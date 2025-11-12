@@ -1,3 +1,5 @@
+import sys
+
 def cat(filepaths):
     for filepath in filepaths:
         try:
@@ -9,3 +11,10 @@ def cat(filepaths):
             print(f"Oops! {filepath} is a directory, not a file")
         except PermissionError:
             print(f"Oops! You don’t have permission to read {filepath}")
+
+if __name__ == "__main__":
+    filepaths = sys.argv[1:]
+    if not filepaths:
+        print("Usage: python cat.py <file1> <file2> ...")
+    else:
+        cat(filepaths)
