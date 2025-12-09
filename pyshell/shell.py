@@ -3,8 +3,8 @@ import sys
 import shutil
 import subprocess
 from commands.cat import cat
+from commands.pwd import pwd
 
-# Colored output
 BLUE = "\033[94m"
 WHITE = "\033[97m"
 DIM = "\033[90m"
@@ -83,7 +83,9 @@ def run_shell():
         elif command == "nvim" and args:
             run_nvim(args[0])
         elif command == "cat" and args:
-             cat(args)
+            cat(args)
+        elif command == "pwd":
+            pwd(args)
         else:
             print(f"{DIM}Unknown command:{RESET} {command}")
 
